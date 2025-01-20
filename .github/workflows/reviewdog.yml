@@ -23,7 +23,7 @@ jobs:
           NODE_AUTH_TOKEN: ${{ secrets.GH_PACKAGE_READ_WRITE }}
 
       # Run ESLint and store the results in a file
-      - run: npx eslint . --format json
+      - run: npx eslint .
         name: Run ESLint for Debugging
 
       # Use Reviewdog to report ESLint issues
