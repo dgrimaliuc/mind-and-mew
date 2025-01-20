@@ -1,0 +1,33 @@
+name: reviewdog
+
+on:
+  - push
+
+jobs:
+  reviewdog:
+    runs-on: ubuntu-latest
+    permissions:
+      contents: read
+      pull-requests: write
+    steps:
+      - uses: actions/checkout@v3
+      - uses: actions/setup-node@v3
+        with:
+          cache: 'npm'
+          node-version-file: '.nvmrc'
+          registry-url: 'https://npm.pkg.github.com'
+
+      # Install dependencies (including ESLint)
+      - run: npm ci --no-audit --no-progress --prefer-offline
+        env:
+          NODE_AUTH_TOKEN: ${{ secrets.GH_PACKAGE_READ_WRITE }}
+
+      # Run ESLint and store the results in a file
+      - run: npx eslint .
+        name: Run ESLint for Debugging
+
+      # Use Reviewdog to report ESLint issues
+      - uses: reviewdog/action-eslint@v1
+        with:
+          reporter: github-check
+          level: warning
