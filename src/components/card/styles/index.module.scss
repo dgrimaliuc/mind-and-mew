@@ -1,16 +1,29 @@
+@use '~styles/main' as *;
+
 .card {
-  background-color: #b5bb9f;
-  height: 15rem;
-  width: 15rem;
+  background-color: $background-card;
+  height: $game-card-size;
+  width: $game-card-size;
+
+  max-width: 15rem;
+  max-height: 15rem;
+
+  min-height: $min-game-card-size;
+  min-width: $min-game-card-size;
+  text-align: center;
   transition: transform 0.8s;
   transform-style: preserve-3d;
+
+  @media (max-width: $desktop-viewport) {
+    // $min-game-card-size: 1rem;
+    // height: 10vw;
+    // width: 10vw;
+  }
 }
 
 /* FlipCard.css */
 .flip-card {
-  perspective: 1000px; /* Perspective for 3D effect */
-  width: 200px;
-  height: 200px;
+  perspective: 1000px;
   cursor: pointer;
 }
 

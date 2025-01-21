@@ -83,3 +83,14 @@ This section has moved here: [https://facebook.github.io/create-react-app/docs/d
 ### `npm run build` fails to minify
 
 This section has moved here: [https://facebook.github.io/create-react-app/docs/troubleshooting#npm-run-build-fails-to-minify](https://facebook.github.io/create-react-app/docs/troubleshooting#npm-run-build-fails-to-minify)
+
+### What could be done better
+
+1. Server Side rendering
+2. SEO
+3. Next JS
+4. API Server
+
+### Plan
+
+1. To Add cat's paw animation on hover cards
