@@ -1,4 +1,4 @@
-import { Header, Card, Board } from './components';
+import { Header, Board } from './components';
 import React from 'react';
 import { CssBaseline, ThemeProvider, createTheme } from '@mui/material';
 import './styles/main.scss';
