@@ -1,7 +1,9 @@
 /* Viewport sizes */
-$small-mobile-viewport: 320px;
-$medium-mobile-viewport: 500px;
-$mobile-viewport: 767px;
-$tablet-viewport: 834px;
-$desktop-viewport: 1024px;
-$large-desktop-viewport: 1200px;
+$small-mobile-viewport: 31rem; // 500px
+$mobile-viewport: 48rem; // 767px;
+$tablet-viewport: 52rem; // 834px;
+$desktop-viewport: 64rem; // 1024px;
+$large-desktop-viewport: 75rem; // 1200px;
+
+/* Widths */
+$min-page-width: 25rem;

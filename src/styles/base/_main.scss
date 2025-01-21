@@ -1,4 +1,4 @@
-@use '../variables/colors' as *;
+@use '../variables/index' as *;
 
 a {
   text-decoration: none;
@@ -19,4 +19,9 @@ input,
 button {
   color: #fff;
   background-color: transparent;
+}
+
+html,
+body {
+  min-width: $min-page-width;
 }
