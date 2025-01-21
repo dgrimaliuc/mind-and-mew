@@ -2,8 +2,8 @@
 
 .card {
   background-color: $background-card;
-  height: $game-card-size;
-  width: $game-card-size;
+  // height: $game-card-size;
+  // width: $game-card-size;
 
   max-width: 15rem;
   max-height: 15rem;
@@ -13,12 +13,13 @@
   text-align: center;
   transition: transform 0.8s;
   transform-style: preserve-3d;
+  aspect-ratio: 1 / 1;
 
-  @media (max-width: $desktop-viewport) {
-    // $min-game-card-size: 1rem;
-    // height: 10vw;
-    // width: 10vw;
-  }
+  // @media (max-width: $desktop-viewport) {
+  // $min-game-card-size: 1rem;
+  // height: 10vw;
+  // width: 10vw;
+  // }
 }
 
 /* FlipCard.css */
