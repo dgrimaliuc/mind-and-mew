@@ -1,4 +1,11 @@
-@use '../variables/colors' as *;
+@use '../variables/index' as *;
+
+* {
+  margin: 0;
+  padding: 0;
+  outline: 0;
+  box-sizing: border-box;
+}
 
 a {
   text-decoration: none;
@@ -6,9 +13,9 @@ a {
 }
 
 body {
-  overflow: hidden;
   position: relative;
   color: $text-primary;
+  background-color: $background-main;
 }
 
 img {
@@ -19,4 +26,9 @@ input,
 button {
   color: #fff;
   background-color: transparent;
+}
+
+html,
+body {
+  min-width: $min-page-width;
 }

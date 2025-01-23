@@ -1,18 +1,15 @@
 import { Header, Board } from './components';
 import React from 'react';
-import { CssBaseline, ThemeProvider, createTheme } from '@mui/material';
 import './styles/main.scss';
-
-const theme = createTheme();
+import { Provider } from 'react-redux';
+import store from './reduxStore';
 
 function App() {
   return (
-    <ThemeProvider theme={theme}>
-      <CssBaseline />
+    <Provider store={store}>
       <Header />
-      {/* <Card /> */}
       <Board />
-    </ThemeProvider>
+    </Provider>
   );
 }
 

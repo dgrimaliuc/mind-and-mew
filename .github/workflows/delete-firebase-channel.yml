@@ -1,0 +1,16 @@
+name: Close PR delete firebase channel
+on:
+  pull_request:
+    types: [closed]
+jobs:
+  delete_firebase_channel:
+    runs-on: ubuntu-latest
+    timeout-minutes: 10
+    steps:
+      - uses: actions/checkout@v4
+      - uses: w9jds/firebase-action@v12.4.0
+        with:
+          args: hosting:channel:list --site=mind-and-mew | awk -v pr_number="pr${{ github.event.pull_request.number }}" '$0 ~ pr_number { print $2 }' | xargs -I {} firebase hosting:channel:delete --site=mind-and-mew {} --force
+        env:
+          GCP_SA_KEY: ${{ secrets.FIREBASE_SERVICE_ACCOUNT_MIND_AND_MEW }}
+          PROJECT_ID: mind-and-mew
