@@ -90,6 +90,12 @@ This section has moved here: [https://facebook.github.io/create-react-app/docs/t
 2. SEO
 3. Next JS
 4. API Server
+5. Errors handling
+6. Placeholders for images
+7. Persisting state
+8. Better UI/UX
+9. Better animations
+10. Better code splitting
 
 ### Plan
 

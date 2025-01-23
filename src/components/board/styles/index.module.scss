@@ -10,8 +10,7 @@
   position: relative;
   width: 100%;
   height: 100vh;
-  background-color: $background-main;
-  padding-bottom: 3rem;
+  margin-bottom: 10rem;
 
   &__wrapper {
     display: flex;
@@ -39,19 +38,32 @@
     align-items: center;
 
     @media (max-width: $mobile-viewport) {
-      --min-game-card-size: 4rem;
+      // --min-game-card-size: 4rem;
     }
     @media (max-width: $small-mobile-viewport) {
-      --min-game-card-size: 3rem;
-      gap: 0.7rem;
+      --min-game-card-size: 9rem;
+      // gap: 0.7rem;
     }
     @media (min-width: $desktop-viewport) and (max-width: $ultra-large-desktop-viewport) {
-      --min-game-card-size: 5.5rem;
-      gap: 2rem;
+      --min-game-card-size: 12rem;
+      width: 63rem;
+      gap: 0.8rem;
     }
 
     @media (min-width: $ultra-large-desktop-viewport) {
-      width: 60vw;
+      --min-game-card-size: 13rem;
+      // width: 60vw;
     }
+
+    /*
+        $small-mobile-viewport: 31rem; // 500px
+        $mobile-viewport: 48rem; // 767px;
+        $tablet-viewport: 52rem; // 834px;
+        $desktop-viewport: 64rem; // 1024px;
+        $medium-desktop-viewport: 69rem; // 1104px;
+        $large-desktop-viewport: 75rem; // 1200px;
+        $ultra-large-desktop-viewport: 95rem; // 1520px;
+
+    */
   }
 }
