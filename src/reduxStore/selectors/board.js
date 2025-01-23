@@ -1,2 +1,4 @@
 export const boardSelector = state => state.board;
-export const fullOpenSelector = state => boardSelector(state).fullOpen;
+export const isFullOpen = state => boardSelector(state).fullOpen;
+export const correctSelector = state => boardSelector(state).correct;
+export const incorrectSelector = state => boardSelector(state).incorrect;
