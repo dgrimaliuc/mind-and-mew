@@ -6,11 +6,14 @@ import { useIsFullOpen } from 'hooks/useIsFullOpen';
 import { useDispatch } from 'react-redux';
 import { boardActions } from 'reduxStore';
 
-export function Card({ correct, image }) {
+export function Card({ type, image }) {
   const innerRef = useRef(null);
   const [flipped, setFlipped] = useState(false);
   const { position, isHovering, handleMouseMove, handleMouseLeave } = useHoverCursor();
   const dispatch = useDispatch();
+
+  const placeholder = type === 'placeholder';
+  const correct = type === 'correct';
 
   // boardActions
   useIsFullOpen(styles, innerRef);
@@ -23,6 +26,7 @@ export function Card({ correct, image }) {
     } else {
       dispatch(boardActions.incrementIncorrect());
     }
+
     innerRef.current.classList.toggle(styles.flipped);
     handleMouseLeave();
     setFlipped(state => !state);
@@ -31,7 +35,7 @@ export function Card({ correct, image }) {
   return (
     <div
       className={combineClasses(
-        styles.card__wrapper,
+        placeholder ? styles.card__placeholder : styles.card__wrapper,
         correct ? styles.correct_card : styles.incorrect_card,
       )}
     >

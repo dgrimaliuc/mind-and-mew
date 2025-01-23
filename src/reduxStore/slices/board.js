@@ -2,7 +2,7 @@ import { createSlice } from '@reduxjs/toolkit';
 
 const counterSlice = createSlice({
   name: 'board',
-  initialState: { fullOpen: false, correct: 0, incorrect: 0 },
+  initialState: { fullOpen: true, correct: 0, incorrect: 0 },
   reducers: {
     showCards(state) {
       state.fullOpen = true;
