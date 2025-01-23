@@ -1,0 +1,48 @@
+@use '~styles/main' as *;
+
+:root {
+  --min-game-card-size: 8rem; // Default for large screens
+}
+
+.header {
+  @include flex(row, space-between, center);
+  width: 100%;
+  border-radius: 1rem;
+  @include primary-border;
+  padding: 5px;
+  gap: 1rem;
+
+  &__title {
+    text-wrap: nowrap;
+    font-size: 2.5rem;
+    font-weight: 700;
+    color: $text-primary;
+  }
+
+  &__counter {
+    @include flex(row, center, center);
+    gap: 2px;
+    &_icon_red {
+      color: red;
+    }
+    &_icon_green {
+      color: green;
+    }
+    font-size: 2rem;
+    font-weight: 700;
+    color: $text-primary;
+  }
+
+  &__settings {
+    &_icon {
+      &:hover {
+        color: $interaction-primary;
+        transform: rotate(185deg);
+      }
+      color: $text-primary;
+      cursor: pointer;
+      font-size: 3rem !important;
+      transition: transform 0.5s ease-out !important;
+    }
+  }
+}

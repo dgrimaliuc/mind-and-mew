@@ -1,5 +1,6 @@
 import styles from './styles/index.module.scss';
-import { Card } from '../card';
+import { Card } from 'components';
+import { BoardHeader } from 'components';
 import { useMemo } from 'react';
 import { generateCards } from 'utils';
 
@@ -16,7 +17,7 @@ export function Board() {
   return (
     <div className={styles.board}>
       <div className={styles.board__wrapper}>
-        <h2 className={styles.board__title}>Test your mind</h2>
+        <BoardHeader />
         <div className={styles.board__cards_container}>
           {cards.map((e, index) => (
             <Card key={index} correct={e} image={images[e]} />

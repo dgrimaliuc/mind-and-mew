@@ -1,31 +1,32 @@
 import { combineClasses } from 'utils';
 import styles from './styles/index.module.scss';
-import { useCallback, useEffect, useRef, useState } from 'react';
-import { useSelector } from 'react-redux';
-import { fullOpenSelector } from 'reduxStore';
+import { useCallback, useRef, useState } from 'react';
 import { useHoverCursor } from 'hooks';
+import { useIsFullOpen } from 'hooks/useIsFullOpen';
+import { useDispatch } from 'react-redux';
+import { boardActions } from 'reduxStore';
 
-export function Card({ correct = true, image }) {
+export function Card({ correct, image }) {
   const innerRef = useRef(null);
   const [flipped, setFlipped] = useState(false);
-
-  const isBoardFullOpen = useSelector(fullOpenSelector);
   const { position, isHovering, handleMouseMove, handleMouseLeave } = useHoverCursor();
+  const dispatch = useDispatch();
+
+  // boardActions
+  useIsFullOpen(styles, innerRef);
 
   const handleFlip = useCallback(() => {
     if (flipped) return;
+
+    if (correct) {
+      dispatch(boardActions.incrementCorrect());
+    } else {
+      dispatch(boardActions.incrementIncorrect());
+    }
     innerRef.current.classList.toggle(styles.flipped);
     handleMouseLeave();
     setFlipped(state => !state);
-  }, [flipped, handleMouseLeave]);
-
-  useEffect(() => {
-    if (isBoardFullOpen) {
-      innerRef.current.classList.add(styles.flipped);
-    } else {
-      innerRef.current.classList.remove(styles.flipped);
-    }
-  }, [isBoardFullOpen]);
+  }, [correct, dispatch, flipped, handleMouseLeave]);
 
   return (
     <div
