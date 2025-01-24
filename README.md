@@ -91,7 +91,7 @@ This section has moved here: [https://facebook.github.io/create-react-app/docs/t
 3. Next JS
 4. API Server
 5. Errors handling
-6. Placeholders for images
+6. Placeholders and lazy loading for images
 7. Persisting state
 8. Better UI/UX
 9. Better animations
@@ -99,4 +99,7 @@ This section has moved here: [https://facebook.github.io/create-react-app/docs/t
 
 ### Plan
 
-1. To Add cat's paw animation on hover cards
+1. Add restart
+2. Add multiplayer
+3. Add levels
+4. Add Multiplayer Modes

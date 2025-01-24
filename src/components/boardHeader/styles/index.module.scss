@@ -5,6 +5,7 @@
 }
 
 .header {
+  position: relative;
   @include flex(row, space-between, center);
   width: 100%;
   border-radius: 1rem;
