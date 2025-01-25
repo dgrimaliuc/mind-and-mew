@@ -7,6 +7,4 @@ it('renders the image with the correct src and alt attributes', () => {
     let cards = Array.from({ length: cur[1] }).fill(cur[0] === 'correct');
     return acc.concat(cards);
   }, []);
-
-  console.log(r);
 });

@@ -7,7 +7,14 @@
   align-items: $align;
 }
 
-@mixin primary-border($width: 2.3px) {
+@mixin primary-border($width: 2.3px, $color: $border-primary) {
   border-radius: 1rem;
-  border: $width solid $border-primary;
+  border: $width solid $color;
+}
+
+@mixin modal_label($font_size) {
+  flex: 1;
+  font-size: $font_size;
+  text-wrap: nowrap;
+  color: $text-secondary;
 }

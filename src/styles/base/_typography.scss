@@ -1,3 +1,5 @@
+@use '../variables/index.scss' as *;
+
 @font-face {
   font-family: 'Ennobled Pet';
   src: url('~assets/fonts/ennobled-pet/Ennobled-Pet.otf') format('opentype');
@@ -9,8 +11,23 @@
 }
 
 html {
-  font-family: Arial, sans-serif;
+  font-family: 'Roboto', 'Open Sans', 'Trebuchet MS', sans-serif;
   font-size: 16px;
+  @media (max-width: $desktop-viewport) {
+    font-size: 16px;
+  }
+
+  @media (max-width: $tablet-viewport) {
+    font-size: 15px;
+  }
+
+  @media (max-width: $mobile-viewport) {
+    font-size: 14px;
+  }
+
+  @media (max-width: $small-mobile-viewport) {
+    font-size: 13px;
+  }
 }
 
 .text-decoration-off {

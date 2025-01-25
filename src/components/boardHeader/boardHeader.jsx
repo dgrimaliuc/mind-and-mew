@@ -1,7 +1,7 @@
 import styles from './styles/index.module.scss';
 import SettingsIcon from '@mui/icons-material/Settings';
-import { correctSelector, incorrectSelector } from 'reduxStore';
-import { useSelector } from 'react-redux';
+import { boardActions, correctSelector, incorrectSelector } from 'reduxStore';
+import { useDispatch, useSelector } from 'react-redux';
 import { motion } from 'framer-motion';
 import { useRef } from 'react';
 
@@ -9,6 +9,8 @@ export function BoardHeader() {
   const correct = useSelector(correctSelector);
   const incorrect = useSelector(incorrectSelector);
   const header = useRef(null);
+  const dispatch = useDispatch();
+
   return (
     <div className={styles.header} ref={header}>
       <motion.h2 className={styles.header__title} initial={{ x: 100 }} animate={{ x: 0 }}>
@@ -31,7 +33,11 @@ export function BoardHeader() {
           {incorrect}
         </motion.span>
       </motion.div>
-      <motion.div initial={{ x: -100 }} animate={{ x: 0 }}>
+      <motion.div
+        initial={{ x: -100 }}
+        animate={{ x: 0 }}
+        onClick={dispatch.bind(null, boardActions.showModal())}
+      >
         <SettingsIcon fontSize='large' className={styles.header__settings_icon} />
       </motion.div>
     </div>

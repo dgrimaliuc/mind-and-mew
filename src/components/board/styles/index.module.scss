@@ -12,6 +12,10 @@
   @extend %full-size;
   margin: 5rem 0 10rem 0;
 
+  @media (max-width: $mobile-viewport) {
+    margin: 2rem 0 2rem 0;
+  }
+
   &__wrapper {
     position: relative;
     @include flex(column, center, center);
