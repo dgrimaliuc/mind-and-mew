@@ -1,0 +1,22 @@
+@use '~styles/main' as *;
+
+.select {
+  &__container {
+    width: 100%;
+
+    @include flex(row, center, center);
+    gap: 1em;
+  }
+
+  &__label {
+    @include modal_label(1.3em);
+  }
+
+  &__dropdown {
+    flex: 1;
+    height: 2.6em;
+    font-size: 1.9em;
+    @include primary-border(2px, $background-secondary);
+    border-radius: 0.5rem !important;
+  }
+}

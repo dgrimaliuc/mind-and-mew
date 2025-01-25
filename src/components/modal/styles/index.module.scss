@@ -1,0 +1,39 @@
+@use '~styles/main' as *;
+
+.board_modal {
+  &__wrapper {
+    @include flex(column, center, center);
+    color: $background-secondary;
+    overflow: auto;
+  }
+
+  &__content {
+    position: relative;
+    @include flex(column, start, center);
+    @include primary-border;
+    padding: 2em;
+    width: 30em;
+    height: 40em;
+    background-color: white;
+    gap: 2em;
+  }
+
+  &__title {
+    font-size: 2.4em;
+  }
+
+  &__action_button {
+    &[disabled] {
+      background-color: gray !important;
+    }
+    background-color: $interaction-primary !important;
+    width: 85%;
+    font-size: 1.2rem;
+    &_container {
+      @include flex(column, center, center);
+      position: absolute;
+      bottom: 1.5rem;
+      width: 85%;
+    }
+  }
+}
