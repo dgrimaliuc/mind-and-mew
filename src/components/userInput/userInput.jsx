@@ -3,20 +3,31 @@ import styles from './style/index.module.scss';
 import { AccountCircle } from '@mui/icons-material';
 import { useDispatch, useSelector } from 'react-redux';
 import { gameActions, playerErrorSelector, playerNameSelector } from 'reduxStore';
+import { useEffect } from 'react';
+import { debounce } from 'lodash';
 
 export function UserInputField({ id, color }) {
   const dispatch = useDispatch();
   const error = useSelector(state => playerErrorSelector(state, id));
   const value = useSelector(state => playerNameSelector(state, id));
 
-  const handleChange = event => {
-    const inputValue = event.target.value;
-    if (inputValue.length < 3 || inputValue.length > 9) {
-      //inputValue.length > 0 &&
+  const debounceValidation = debounce(value => {
+    if (value.length > 0 && (value.length < 3 || value.length > 9)) {
       dispatch(gameActions.setPlayerError({ id, value: true }));
     } else {
       dispatch(gameActions.setPlayerError({ id, value: false }));
     }
+  }, 700);
+
+  useEffect(() => {
+    debounceValidation(value);
+    return () => {
+      debounceValidation.cancel();
+    };
+  }, [debounceValidation, value]);
+
+  const handleChange = event => {
+    const inputValue = event.target.value;
     dispatch(gameActions.setPlayer({ id, color, name: inputValue }));
   };
 

@@ -9,7 +9,7 @@ import {
   playersSelector,
 } from 'reduxStore';
 import { motion } from 'framer-motion';
-import { DropdownOption, PlayersContainer, UserInputContainer } from 'components';
+import { DropdownOption, PlayersContainer } from 'components';
 import { useEffect, useState } from 'react';
 
 export function BoardModal() {
@@ -35,11 +35,11 @@ export function BoardModal() {
 
   useEffect(() => {
     const isAnyErrorDisplayed = Object.values(errors).filter(error => error).length > 0;
-    const isAnyPlayerEmpty =
+    const isAnyPlayerNameEmpty =
       Object.values(players).length === 0 ||
       Object.values(players).filter(player => !player.name).length > 0;
 
-    setDisabled(isAnyErrorDisplayed || isAnyPlayerEmpty);
+    setDisabled(isAnyErrorDisplayed || isAnyPlayerNameEmpty);
   }, [errors, players]);
 
   return (
