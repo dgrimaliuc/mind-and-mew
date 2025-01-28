@@ -1,6 +1,6 @@
 import styles from './styles/index.module.scss';
 import SettingsIcon from '@mui/icons-material/Settings';
-import { boardActions, correctSelector, incorrectSelector, modalActions } from 'reduxStore';
+import { correctSelector, incorrectSelector, modalActions } from 'reduxStore';
 import { useDispatch, useSelector } from 'react-redux';
 import { motion } from 'framer-motion';
 import { useRef } from 'react';

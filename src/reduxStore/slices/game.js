@@ -1,6 +1,7 @@
 import { createSlice } from '@reduxjs/toolkit';
 import { levels } from 'utils';
 import { cloneDeep } from 'lodash';
+import { fetchImages } from 'reduxStore/thunks/images';
 
 const initialState = {
   level: levels.easy,
@@ -8,6 +9,7 @@ const initialState = {
   players: {},
   errors: {},
   images: {
+    status: 'idle',
     correct: 'https://cdn2.thecatapi.com/images/ATYs2BetM.jpg',
     incorrect: 'https://cdn2.thecatapi.com/images/xnzzM6MBI.jpg',
   },
@@ -18,6 +20,7 @@ const gameSlice = createSlice({
   initialState: cloneDeep(initialState),
   reducers: {
     resetGame(state) {
+      initialState.images = state.images;
       Object.assign(state, cloneDeep(initialState));
     },
     setLevel(state, action) {
@@ -45,6 +48,20 @@ const gameSlice = createSlice({
     setCurrentPlayerId(state, action) {
       state.currentPlayerId = action.payload;
     },
+  },
+  extraReducers: builder => {
+    builder
+      .addCase(fetchImages.pending, state => {
+        state.images.status = 'loading';
+      })
+      .addCase(fetchImages.fulfilled, (state, action) => {
+        const [correct, incorrect] = action.payload;
+        state.images = { correct, incorrect, status: 'succeeded' };
+      })
+      .addCase(fetchImages.rejected, (state, action) => {
+        state.images.status = 'failed';
+        state.images.error = action.error.message;
+      });
   },
 });
 

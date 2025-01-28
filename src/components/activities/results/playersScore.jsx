@@ -22,9 +22,11 @@ export function PlayersScore() {
       ))}
 
       <div className={styles.results__win_section}>
-        {playersNumber === winners.length
-          ? 'Friendship wins!'
-          : `The winner${manyWinners ? 's' : ''} ${manyWinners ? 'are' : 'is'} ${winners.map(p => p.name).join(', ')}`}
+        {playersNumber === 1 && 'You are the winner!'}
+        {playersNumber > 1 && playersNumber === winners.length && 'Friendship wins!'}
+        {playersNumber > 1 &&
+          playersNumber !== winners.length &&
+          `The winner${manyWinners ? 's' : ''} ${manyWinners ? 'are' : 'is'} ${winners.map(p => p.name).join(', ')}`}
       </div>
     </div>
   );

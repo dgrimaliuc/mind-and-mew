@@ -10,6 +10,7 @@ export function useGameCards() {
 
   useEffect(() => {
     setCards(generateCards(currentLevel));
+    // eslint-disable-next-line react-hooks/exhaustive-deps
   }, [key]);
   return cards;
 }

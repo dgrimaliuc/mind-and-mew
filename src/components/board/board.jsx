@@ -1,9 +1,9 @@
 import styles from './styles/index.module.scss';
 import { BoardModal, Card } from 'components';
-import { Header } from './header';
+import { Header } from './boardHeader';
 import { useEffect } from 'react';
 import { useDispatch, useSelector } from 'react-redux';
-import { boardActions, imagesSelector, isFullOpenSelector, keySelector } from 'reduxStore';
+import { boardActions, imagesSelector, isFullOpenSelector } from 'reduxStore';
 import { useGameCards, usePlayerResults } from 'hooks';
 
 export function Board() {
@@ -11,6 +11,7 @@ export function Board() {
   const isBoardFullOpen = useSelector(isFullOpenSelector);
   const dispatch = useDispatch();
   usePlayerResults();
+
   const images = useSelector(imagesSelector);
 
   useEffect(() => {

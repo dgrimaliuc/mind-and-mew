@@ -1,8 +1,3 @@
 @function function-example($value) {
   @return $value * 2;
 }
-
-//    Example how to use
-//   .box {
-//     margin: function-example(10px);
-//   }

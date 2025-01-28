@@ -4,12 +4,10 @@ import { useSelector } from 'react-redux';
 import { currentActivitySelector, isModalShown } from 'reduxStore';
 
 import { ActivityManager } from 'components';
-import { INSTRUCTIONS_ACTIVITY, SETTINGS_ACTIVITY } from 'utils';
 
 export function BoardModal() {
   const modalOpened = useSelector(isModalShown);
   const currentActivity = useSelector(currentActivitySelector);
-  // const currentActivity = INSTRUCTIONS_ACTIVITY;
 
   return (
     <Modal open={modalOpened} className={styles.board_modal__wrapper}>

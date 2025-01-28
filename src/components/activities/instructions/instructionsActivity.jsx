@@ -2,7 +2,6 @@ import styles from './styles/index.module.scss';
 import { Activity } from '../../activity';
 import {
   boardActions,
-  correctImageSelector,
   currentActivitySelector,
   currentPlayerSelector,
   levelSelector,
@@ -11,12 +10,14 @@ import {
 import { useDispatch, useSelector } from 'react-redux';
 import { ActionButton } from 'components/actionButton';
 import { INSTRUCTIONS_ACTIVITY, PERSONAL_USER_ACTIVITY } from 'utils';
+import { useImages } from 'hooks';
+import { Spinner } from 'components/spinner';
 
 export function InstructionsActivity() {
   const { id, color, name } = useSelector(currentPlayerSelector);
-  const correctImage = useSelector(correctImageSelector);
   const currentActivity = useSelector(currentActivitySelector);
-  console.log('currentActivity', currentActivity);
+  const { status, correct } = useImages();
+  console.log('status', status);
   const dispatch = useDispatch();
 
   const handleStartClick = () => {
@@ -46,10 +47,13 @@ export function InstructionsActivity() {
           <span className={styles.instructions__important} style={{ color: color }}>
             {currentLevel.correct}
           </span>
-          cards with image bellow
+          cards like bellow
         </div>
         <div className={styles.instructions__image_container}>
-          <img className={styles.instructions__image} src={correctImage} alt='Correct Img' />
+          {status === 'succeeded' && (
+            <img className={styles.instructions__image} src={correct} alt='Correct Img' />
+          )}
+          {status === 'loading' && <Spinner />}
         </div>
 
         {currentActivity === INSTRUCTIONS_ACTIVITY && (
