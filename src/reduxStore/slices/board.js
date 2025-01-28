@@ -1,9 +1,16 @@
 import { createSlice } from '@reduxjs/toolkit';
+import { cloneDeep } from 'lodash';
+
+const initialState = { fullOpen: false, correct: 0, incorrect: 0, key: 1 };
 
 const boardSlice = createSlice({
   name: 'board',
-  initialState: { fullOpen: true, correct: 0, incorrect: 0, isModalShown: true },
+  initialState: cloneDeep(initialState),
   reducers: {
+    resetBoard(state) {
+      Object.assign(state, cloneDeep(initialState));
+      state.key = Math.random();
+    },
     showCards(state) {
       state.fullOpen = true;
     },
@@ -15,12 +22,6 @@ const boardSlice = createSlice({
     },
     incrementIncorrect(state) {
       state.incorrect += 1;
-    },
-    showModal(state) {
-      state.isModalShown = true;
-    },
-    hideModal(state) {
-      state.isModalShown = false;
     },
   },
 });

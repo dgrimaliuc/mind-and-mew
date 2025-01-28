@@ -1,0 +1,11 @@
+@use '~styles/main' as *;
+
+.results {
+  &__container {
+    @extend %activity-placeholder;
+  }
+
+  &__title {
+    font-size: 2.4em;
+  }
+}

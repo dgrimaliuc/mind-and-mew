@@ -1,36 +1,33 @@
 import styles from './styles/index.module.scss';
 import { BoardModal, Card } from 'components';
-import { BoardHeader } from 'components';
-import { useEffect, useMemo } from 'react';
-import { useDispatch } from 'react-redux';
-import { boardActions } from 'reduxStore';
-import { generateCards } from 'utils';
-
-const easyLevel = { correct: 8, incorrect: 9, placeholder: 3 };
-
-const images = {
-  correct: 'https://cdn2.thecatapi.com/images/ATYs2BetM.jpg',
-  incorrect: 'https://cdn2.thecatapi.com/images/xnzzM6MBI.jpg',
-};
+import { Header } from './header';
+import { useEffect } from 'react';
+import { useDispatch, useSelector } from 'react-redux';
+import { boardActions, imagesSelector, isFullOpenSelector, keySelector } from 'reduxStore';
+import { useGameCards, usePlayerResults } from 'hooks';
 
 export function Board() {
-  const cards = useMemo(() => generateCards(easyLevel), []);
+  const cards = useGameCards();
+  const isBoardFullOpen = useSelector(isFullOpenSelector);
   const dispatch = useDispatch();
+  usePlayerResults();
+  const images = useSelector(imagesSelector);
 
   useEffect(() => {
     const timer = setTimeout(() => {
-      dispatch(boardActions.hideCards());
-    }, 2000);
+      if (isBoardFullOpen) {
+        dispatch(boardActions.hideCards());
+      }
+    }, 2500);
 
     return () => clearTimeout(timer);
-  }, [dispatch]);
+  }, [isBoardFullOpen, dispatch]);
 
   return (
     <div className={styles.board}>
-      {/* <Backdrop style={{ zIndex: 2 }} open={true} /> */}
       <div className={styles.board__wrapper}>
         <BoardModal />
-        <BoardHeader />
+        <Header />
         <div className={styles.board__cards_container}>
           {cards.map((type, index) => (
             <Card key={index} type={type} image={images[type]} />

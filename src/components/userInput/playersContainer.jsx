@@ -3,12 +3,7 @@ import { UserInputField } from '.';
 
 import styles from './style/index.module.scss';
 import { playersNumberSelector } from 'reduxStore';
-
-const players = [
-  { id: 1, color: 'blue' },
-  { id: 2, color: 'green' },
-  { id: 3, color: 'red' },
-];
+import { players } from 'utils';
 
 export function PlayersContainer() {
   const playersNumber = useSelector(playersNumberSelector);

@@ -1,13 +1,15 @@
 import { useEffect } from 'react';
-import { isFullOpen } from 'reduxStore';
+import { isFullOpenSelector } from 'reduxStore';
 import { useSelector } from 'react-redux';
 
 export function useIsFullOpen(styles, innerRef) {
-  const isBoardFullOpen = useSelector(isFullOpen);
+  const isBoardFullOpen = useSelector(isFullOpenSelector);
+
   useEffect(() => {
     if (isBoardFullOpen) {
       innerRef.current.classList.add(styles.flipped);
     } else {
+      console.log('removing flipped class');
       innerRef.current.classList.remove(styles.flipped);
     }
   }, [innerRef, isBoardFullOpen, styles.flipped]);

@@ -96,10 +96,11 @@ This section has moved here: [https://facebook.github.io/create-react-app/docs/t
 8. Better UI/UX
 9. Better animations
 10. Better code splitting
+11. Add persistor to store to when reloading page ask user if he would like to continue previous game
 
 ### Plan
 
 1. Add restart
 2. Add multiplayer
 3. Add levels
-4. Add Multiplayer Modes
+4. Add animation to activities

@@ -1,0 +1,27 @@
+@use '~styles/main' as *;
+
+.settings {
+  &__container {
+    @extend %activity-placeholder;
+  }
+
+  &__title {
+    font-size: 2.4em;
+  }
+
+  &__action_button {
+    &_container {
+      @include flex(column, center, center);
+      position: absolute;
+      bottom: 1.5rem;
+      width: 85%;
+    }
+
+    &[disabled] {
+      background-color: gray !important;
+    }
+    background-color: $interaction-primary !important;
+    width: 85%;
+    font-size: 1.2rem;
+  }
+}
