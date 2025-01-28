@@ -1,9 +1,8 @@
-import { useEffect, useState } from 'react';
+import { useEffect } from 'react';
 import {
   boardActions,
   correctSelector,
   currentPlayerIdSelector,
-  currentPlayerSelector,
   gameActions,
   incorrectSelector,
   levelSelector,
@@ -11,7 +10,7 @@ import {
   nextPlayerIdSelector,
 } from 'reduxStore';
 import { useDispatch, useSelector } from 'react-redux';
-import { generateCards, INSTRUCTIONS_ACTIVITY, RESULTS_ACTIVITY } from 'utils';
+import { INSTRUCTIONS_ACTIVITY, RESULTS_ACTIVITY } from 'utils';
 
 export function usePlayerResults() {
   const dispatch = useDispatch();
