@@ -1,0 +1,7 @@
+@use '~styles/main' as *;
+
+.activity {
+  &__container {
+    @extend %full-size;
+  }
+}

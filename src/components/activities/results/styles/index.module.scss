@@ -1,0 +1,33 @@
+@use '~styles/main' as *;
+
+.results {
+  &__container {
+    @extend %activity-placeholder;
+  }
+
+  &__title {
+    font-size: 2.4em;
+  }
+
+  &__correct {
+    color: green;
+  }
+  &__incorrect {
+    color: red;
+  }
+
+  &__players_container {
+    width: 80%;
+    height: 20rem;
+    font-size: 1.9rem;
+  }
+  &__player_result {
+    @include flex(row, space-between, center);
+    font-size: 1.6rem;
+  }
+
+  &__win_section {
+    @include flex(column, center, center);
+    margin-top: 3.8rem;
+  }
+}

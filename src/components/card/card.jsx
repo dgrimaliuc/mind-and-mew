@@ -1,26 +1,21 @@
-import { combineClasses } from 'utils';
 import styles from './styles/index.module.scss';
-import { useCallback, useRef, useState } from 'react';
+import { useCallback, useRef } from 'react';
 import { useHoverCursor } from 'hooks';
-import { useIsFullOpen } from 'hooks/useIsFullOpen';
+import { useIsFullOpen } from 'hooks';
 import { useDispatch } from 'react-redux';
 import { boardActions } from 'reduxStore';
 
 export function Card({ type, image }) {
   const innerRef = useRef(null);
-  const [flipped, setFlipped] = useState(false);
   const { position, isHovering, handleMouseMove, handleMouseLeave } = useHoverCursor();
   const dispatch = useDispatch();
 
   const placeholder = type === 'placeholder';
   const correct = type === 'correct';
 
-  // boardActions
   useIsFullOpen(styles, innerRef);
 
   const handleFlip = useCallback(() => {
-    if (flipped) return;
-
     if (correct) {
       dispatch(boardActions.incrementCorrect());
     } else {
@@ -29,16 +24,10 @@ export function Card({ type, image }) {
 
     innerRef.current.classList.toggle(styles.flipped);
     handleMouseLeave();
-    setFlipped(state => !state);
-  }, [correct, dispatch, flipped, handleMouseLeave]);
+  }, [correct, dispatch, handleMouseLeave]);
 
   return (
-    <div
-      className={combineClasses(
-        placeholder ? styles.card__placeholder : styles.card__wrapper,
-        correct ? styles.correct_card : styles.incorrect_card,
-      )}
-    >
+    <div className={placeholder ? styles.card__placeholder : styles.card__wrapper}>
       <span
         className={styles.paw_icon}
         style={{
