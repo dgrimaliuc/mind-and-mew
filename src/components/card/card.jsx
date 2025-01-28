@@ -1,4 +1,3 @@
-import { combineClasses } from 'utils';
 import styles from './styles/index.module.scss';
 import { useCallback, useRef } from 'react';
 import { useHoverCursor } from 'hooks';
