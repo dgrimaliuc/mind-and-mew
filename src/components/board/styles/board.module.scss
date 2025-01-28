@@ -55,15 +55,15 @@
 
     @media (min-width: $desktop-viewport) and (max-width: $ultra-large-desktop-viewport) {
       grid-template-columns: repeat(auto-fit, minmax(10rem, 1fr));
-      width: 63rem;
+      width: 75vw;
       gap: 0.8rem;
     }
 
     @media (min-width: $ultra-large-desktop-viewport) {
       grid-template-columns: repeat(auto-fit, minmax(13rem, 1fr));
-      width: 65vw;
-      max-width: 65rem;
-      gap: 1rem;
+      width: 75vw;
+      max-width: 75rem;
+      gap: 0.9rem;
     }
   }
 }
