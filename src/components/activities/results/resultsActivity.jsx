@@ -19,7 +19,7 @@ export function ResultsActivity() {
     <Activity>
       <div className={styles.results__container}>
         <h3 className={styles.results__title}>Game Score</h3>
-        <PlayersScore core />
+        <PlayersScore />
         <ActionButton text='Restart' onClick={handleRestartStartClick} />
       </div>
     </Activity>

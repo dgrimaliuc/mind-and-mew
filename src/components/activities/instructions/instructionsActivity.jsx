@@ -39,8 +39,11 @@ export function InstructionsActivity() {
       <div>
         <h3>Instructions for Player {id}</h3>
         <div className={styles.instructions__description}>
-          <span style={{ color: color }}>{name}</span> you should select
-          <span className={styles.instructions__level_info} style={{ color: color }}>
+          <span style={{ color: color }} className={styles.instructions__important}>
+            {name}
+          </span>{' '}
+          you should select
+          <span className={styles.instructions__important} style={{ color: color }}>
             {currentLevel.correct}
           </span>
           cards with image bellow

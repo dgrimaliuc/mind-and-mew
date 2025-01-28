@@ -9,7 +9,6 @@ export function useIsFullOpen(styles, innerRef) {
     if (isBoardFullOpen) {
       innerRef.current.classList.add(styles.flipped);
     } else {
-      console.log('removing flipped class');
       innerRef.current.classList.remove(styles.flipped);
     }
   }, [innerRef, isBoardFullOpen, styles.flipped]);
