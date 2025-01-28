@@ -14,6 +14,24 @@
     aspect-ratio: 1.5 / 1;
     perspective: 1000px;
 
+    // @media (max-width: $desktop-viewport) {
+    // }
+
+    @media (max-width: $tablet-viewport) {
+      width: 21.3vw;
+      height: 8.6rem;
+    }
+
+    @media (max-width: $mobile-viewport) {
+      width: 21.3vw;
+      height: 8.6rem;
+    }
+
+    @media (max-width: $small-mobile-viewport) {
+      width: 29vw;
+      height: 7rem;
+    }
+
     .paw_icon {
       position: absolute;
       font-family: 'Ennobled Pet', sans-serif;

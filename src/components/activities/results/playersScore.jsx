@@ -10,6 +10,7 @@ export function PlayersScore() {
     player => player.results.incorrect === minErrorCount,
   );
   const manyWinners = winners.length > 1;
+  const displayAllWinners = playersNumber > 1 && playersNumber !== winners.length;
 
   return (
     <div className={styles.results__players_container}>
@@ -24,9 +25,8 @@ export function PlayersScore() {
       <div className={styles.results__win_section}>
         {playersNumber === 1 && 'You are the winner!'}
         {playersNumber > 1 && playersNumber === winners.length && 'Friendship wins!'}
-        {playersNumber > 1 &&
-          playersNumber !== winners.length &&
-          `The winner${manyWinners ? 's' : ''} ${manyWinners ? 'are' : 'is'} ${winners.map(p => p.name).join(', ')}`}
+        {displayAllWinners && `The winner${manyWinners ? 's' : ''} ${manyWinners ? 'are' : 'is'} `}
+        {displayAllWinners && <div>{winners.map(p => p.name).join(', ')}</div>}
       </div>
     </div>
   );

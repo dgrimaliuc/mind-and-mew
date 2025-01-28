@@ -28,12 +28,7 @@ export function Card({ type, image }) {
   }, [correct, dispatch, handleMouseLeave]);
 
   return (
-    <div
-      className={combineClasses(
-        placeholder ? styles.card__placeholder : styles.card__wrapper,
-        correct ? styles.correct_card : styles.incorrect_card,
-      )}
-    >
+    <div className={placeholder ? styles.card__placeholder : styles.card__wrapper}>
       <span
         className={styles.paw_icon}
         style={{

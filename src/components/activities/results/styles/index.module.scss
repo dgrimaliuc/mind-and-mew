@@ -22,16 +22,12 @@
     font-size: 1.9rem;
   }
   &__player_result {
-    display: flex;
-    flex-wrap: wrap;
-    justify-content: space-between;
+    @include flex(row, space-between, center);
     font-size: 1.6rem;
   }
 
   &__win_section {
-    display: flex;
-    justify-content: center;
-    align-items: center;
+    @include flex(column, center, center);
     margin-top: 3.8rem;
   }
 }
