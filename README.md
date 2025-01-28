@@ -100,7 +100,4 @@ This section has moved here: [https://facebook.github.io/create-react-app/docs/t
 
 ### Plan
 
-1. Add restart
-2. Add multiplayer
-3. Add levels
-4. Add animation to activities
+- Add animation to activities
